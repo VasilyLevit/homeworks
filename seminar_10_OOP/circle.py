@@ -11,10 +11,10 @@ class Circle:
     def __init__(self, radius):
         self.r = radius # r - атрибут экземпляра класса
 
-    def lenght(self):
+    def get_lenght(self):
         return 2 * pi * self.r
 
-    def area(self):
+    def get_area(self):
         return pi * pow(self.r, 2)
 
 

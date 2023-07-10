@@ -17,67 +17,39 @@ class Animal:
         self.weight = weight
         self.age = age
 
-    def move(self):
-        pass
-
-    def say(self):
-        pass
-
     def __str__(self):
         return f"{self.name} {self.weight} {self.age}"
 
 
 class Bird(Animal):
-    def __init__(self, name: str, weight: int, age: int, bird_type: str, sound: str):
-        super().__init__(name, weight, age)
+    def __init__(self, bird_type: str, singing: str, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.bird_type = bird_type
-        self._sound = sound
-
-    def move(self):
-        return "Fly"
-
-    def say(self):
-        return self._sound
+        self.sound = singing
 
     def __str__(self):
-        return f"{super().__str__()} {self.bird_type}"
+        return f"{super().__str__()} {self.bird_type} {self.sound}"
 
 
 class Dog(Animal):
-    def __init__(self, name: str, weight: int, age: int, dog_type: str):
-        super().__init__(name, weight, age)
-        self.dog_type = dog_type
-
-    def move(self):
-        return "Run"
-
-    def say(self):
-        return "Gov"
+    def __init__(self, breed: str, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.breed = breed
 
     def __str__(self):
-        return f"{super().__str__()} {self.dog_type}"
+        return f"{super().__str__()} {self.breed}"
 
 
 class Fish(Animal):
-    def __init__(self, name: str, weight: int, age: int, fish_type: str):
-        super().__init__(name, weight, age)
+    def __init__(self, fish_type: str, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self.fish_type = fish_type
-
-    def move(self):
-        return "Swim"
-
-    def say(self):
-        return ""
 
     def __str__(self):
         return f"{super().__str__()} {self.fish_type}"
 
 
 if __name__ == '__main__':
-    dog = Dog("Рэкс", 40, 5, "Такса")
-    bird = Bird("Гоша", 1, 3, "Попугай", "Чирик")
-    fish = Fish("Дорри", 10, 5, "Речной")
-
-    print(dog)
-    print(bird)
-    print(fish)
+    print(Dog("Такса", "Рэкс", 40, 5))
+    print(Bird("Parrot", "Чирик","Гоша", 1, 3))
+    print(Fish("Regal_blue", "Dory", 10, 5))
